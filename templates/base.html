@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BeViBig's Text Extract</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}"><!-- css 연결 -->
+    <link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet"><!-- font설정 -->
+    <script src="https://kit.fontawesome.com/9279b2b68a.js"></script>
+</head>
+<body>
+    
+    <div id=boundary>
+        <!-- 헤더 영역 -->
+
+        <header class="header cfixed">
+            <h1 class="logo"><a href="#">BeViBig's Text Extract</a></h1>
+            <nav>
+                <ul class="gnb">
+                    <li style="font-weight: bold;"><a href="#summary">summary</a></li>
+                    <li style="font-weight: bold;"><a href="#about">about</a></li>
+                </ul>
+            </nav>
+            <!-- 토글기능 구현예정 : 삭제할 예정-->
+            <span class="menu-toggle-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+
+        </header>
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Welcome 부분 -->
+
+        <section class="about-section">
+            <div class="container">
+                <h2 class="title-tag">Welcome</h2>
+                <p class="info" style="padding-bottom: 10px; font-style: italic; font-size: large; font-weight: bold;">
+                    
+                    BeViBig's Text Extract summarizes text to save you time.<br>
+                    Paste an article, text or essay in this box and hit summarize. we'll return a shortened copy for you to read.<br>
+                            
+            </p>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+        <hr class="separator separator--line">
+
+        <!-- summary 부분 -->
+        <section class="about-section" id="summary">
+            <div class="container">
+                <h2 class="title-tag">Summarizing</h2>
+                <p class="info" style="padding-bottom: 10px; font-style: italic; font-size: large; font-weight: bold;">
+[STEP]<br>
+BeViBig's Text Extract summarizes text to save you time.<br>
+Paste an article, text or essay in this box and hit summarize. we'll return a shortened copy for you to read.<br>         
+            </p>
+            </div>
+        </section>
+
+        <!-- text-box 부분 -->
+        <section class="about-section">
+
+            <div class="container">
+                <div class= "paper-wrapper" style="display: flex; justify-content: space-around; flex-basis: 50%; padding: 10px 0;">
+                    <p class="subtitle" style="font-weight: bold; font-size: 1.5rem;">Before</p>
+                    <p class="subtitle" style="font-weight: bold; font-size: 1.5rem;">After</p>
+                </div>
+
+
+
+
+
+
+
+                <!-- 입력을 받는 노트 -->
+
+
+
+                <!-- 노트들의 감싸는 div wrapper -->
+
+                <div class= "paper-wrapper" style="display: flex; justify-content: center; flex-basis: 50%;">
+
+                    
+                    <div class="paper" style="margin-right: 10%;">
+                        
+
+                        <!-- 입력된 로그인 데이터를 보낼 서버 페이지의 주소를 입력 -->
+                        <form action="./result" method="GET">
+
+
+                            <textarea class="text" name="original" placeholder="This service summarizes text to save you time.
+
+[STEP]
+
+1. Paste an article, text or essay in this box
+2. Click! to summarize
+3. We'll return a shortened copy for you to read.."></textarea>
+                        
+                    </div>
+                    
+
+
+
+                    <!-- 결과 보여줄 노트 -->
+                    <div class="paper"></div>
+
+                </div>
+
+
+
+        <!-- 제출 버튼 -->
+
+            <div class= "paper-wrapper" style="display: flex; justify-content: space-around; flex-basis: 50%; padding: 10px 0;">
+            
+                <button type="submit">Click!</button>
+                
+            </div>
+
+        </form>
+
+
+            </div>
+            
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+        <hr class="separator separator--line">
+
+        <!-- about 부분 -->
+
+        <section class="about-section" id="about">
+            <div class="container">
+                <h2 class="title-tag">About Us</h2>
+                <p class="info">
+                    BeViBig's Text Extract was created to summarize articles and text.<br>
+                    BeViBig's Text Extract's mission is to provide an efficient manner of understanding text, which is done primarily by reducing the text to only the most important sentences.<br>
+                    <br>
+                    <ins><b>The contents below are intended for testing. </b></ins><br><br>
+
+                    BeViBig's Text Extract accomplishes its mission by:
+                    <br>
+                    • Ranking sentences by importance using the core algorithm.<br>
+                    • Reorganizing the summary to focus on a topic; by selection of a keyword.<br>
+                    • Removing transition phrases.<br>
+                    • Removing unnecessary clauses.<br>
+                    • Removing excessive examples.<br>
+                    <br>
+                    The core algorithm summarizes in 7 simple steps:<br>
+                    <br>
+                    1) Associate words with their grammatical counterparts. (e.g. "city" and "cities")<br>
+                    2) Calculate the occurrence of each word in the text.<br>
+                    3) Assign each word with points depending on their popularity.<br>
+                    4) Detect which periods represent the end of a sentence. (e.g "Mr." does not).<br>
+                    5) Split up the text into individual sentences.<br>
+                    6) Rank sentences by the sum of their words' points.<br>
+                    7) Return X of the most highly ranked sentences in chronological order.<br>
+                
+            </p>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+        <hr class="separator separator--line">
+
+
+        <!-- 푸터 영역 -->
+
+        <footer class="footer">
+            <p style="font-weight: bold; font-size: 1.5rem;">BeViBig's Text Extract</p>
+            
+            <!-- 문의 사항btn - 임시링크-->
+            <div><a href='http://pf.kakao.com/_rJSQT' class="chat">
+                <i class="fas fa-headset"></i>
+                            </a></div>
+            <h7 class="copyright">Copyright © 2021 BeViBig. All rights reserved.<br>
+                Contact webmaster for more information. 070-1234-5678</h7>
+        </footer>    
+    </div>
+</body>
+</html>

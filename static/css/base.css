@@ -1,0 +1,488 @@
+/* IE에는 css3나 js가 지원되지 않는... 꽤 있음. */
+/* IE 하위 버전 지원을 위해 */
+/* 
+IE7에서는 css3를 지원X. So, 가상선택자(before & after) 사용-> :: 대신 : 사용함.(이것도 IE6 이하는 지원x)
+브라우저 별 관련 prefix
+-ms : IE
+-webkit : safari | crome
+-moz : firefox
+*/
+
+/* init all tags */
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    --margin-line: #941c5a;
+    --lines: #1d97b8;
+
+}
+article, footer, header, nav, section {
+    display: block;
+}
+
+nav, ul, li {
+    list-style: none;
+}
+
+a{
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    text-decoration: none;
+}
+hr {
+    display: block;
+    height: 2px;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+/* hr같은 기능(연두색 긴 줄 하나) */
+.separator {
+margin-top: 25px;
+margin-bottom: 80px;
+border: 0;
+}
+
+.separator--line {
+border: 0;
+border-bottom: 5px solid #bada55;
+
+width: 0;
+animation: separator-width 2s ease-out forwards;
+}
+@keyframes separator-width {
+0% {
+    width: 0;
+}
+100% {
+    width: 100%;
+}
+}
+
+
+/* default */
+body{
+    background: rgb(255, 255, 255);  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom,  #eef1f3,rgb(255, 255, 255));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #eef1f3,rgb(255, 255, 255)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: 'Sunflower', sans-serif;
+}
+.container{
+    width:90%;
+    max-width:1280px;
+    margin:0 auto;
+}
+    
+.cfixed:after, .container:after{
+display:block;
+content:"";
+clear:both;
+}
+
+.blind {
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+.title-tag{
+font-size:42px;
+color:#3f51b5;
+font-weight:bold;
+}
+
+.divider{
+    width: 90%;
+    max-width: 1280px;
+    margin:0 auto;
+    margin-top:77px;
+    background:rgb(14, 92, 155);
+    /* 기존 코드에서 너비들 %값은 1132(맥스넓이) 기준으로 했으니 나는 내 모니터에 맞춰보자 */
+
+}
+
+/* 구분선 */
+.m-divider{
+width:20px;
+margin:0 auto;
+margin-top:77px;
+background:#ffaa64;
+}
+
+/* 문의사항 버튼 */
+a.chat {
+    font-size: 20px;
+    position: fixed;
+    right: 20px;
+    bottom: 30px;
+    width: 30px;
+    height: 30px;
+    background: #bada55;
+    border-radius: 50%;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
+    line-height: 30px;
+}
+
+/*---------------Mobile---------------*/
+
+.wrapper{
+    margin-top: 80px;
+	position: relative;
+    /* top: 50%; */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(86, 138, 250, 0.61);
+    max-width: 300px;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+.wrapper .inputID {
+    width: 85%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+
+
+/* 헤더 */
+
+.header {
+    position: relative;
+    padding: 10px 5%;
+}
+
+.header .logo {
+    float: left;
+}
+.header .logo a {
+    font-size: 26px;
+    color: #568AFA;
+    font-weight: bolder;
+}
+
+.header .gnb {
+    display: none;
+    position: absolute;
+    background: #568AFA;
+    top:100%;
+    left:0;
+    width:100%;
+}
+.header .gnb li{
+border-bottom:1px solid #303f9f;
+}
+    
+.header .gnb li a{
+display:block;
+padding:14px 0 14px 5%;
+font-size:14px;
+color:#fff;
+/* text-transform: uppercase; */
+}
+    
+.header .menu-toggle-btn{
+float:right;
+width:20px;
+margin-top:4px;
+cursor:pointer;
+}
+    
+.header .menu-toggle-btn span{
+display:block;
+width:100%;
+height:2px;
+background:#568AFA;
+}
+    
+.header .menu-toggle-btn span:nth-child(2){
+margin:5px 0;
+}
+
+
+/* 디스플레이 */
+.about-section{
+    margin-top: 60px;
+    text-align: center;
+}
+.about-section .title-tag {
+    margin-bottom: 15px;
+}
+.about-section .info {
+    color: #568AFA;
+    line-height: 1.5;
+    margin-bottom: 5%;
+
+}
+
+
+/* 푸터 영역 */
+.footer {
+    margin-top: 104px;
+}
+.footer p {
+    margin: 21px 0;
+    color: #568AFA;
+    clear: both;
+    /* text-align: center; */
+}
+
+.copyright {
+    float: right;
+    margin: 0 5% 2% 0;
+    font-size: smaller;
+    color:#484a53;
+}
+
+
+/*---------------tablet---------------*/
+
+
+
+@media all and (min-width: 768px){
+.divider{
+    margin-top:124px;
+}    
+    
+.m-divider{
+    margin-top:124px;
+}
+
+.header {
+    position: static;
+    padding: 28px 52px;
+}
+    
+.header .gnb{
+display:block !important;
+position:static;
+float:right;
+width:auto;
+margin-top:6px;
+background:none;
+}
+.header .gnb li{
+float:left;
+margin-left:21px;
+border-bottom:0;
+}
+    
+.header .gnb li a{
+padding:0;
+font-size:16px;
+color:#3f51b5;
+}
+
+.header .menu-toggle-btn{
+display:none !important;
+}
+
+
+/* 입력, 결과창 영역 */
+  
+  .paper {
+    width: 80%;
+    height: 500px;
+    background-color: #fff;
+    background-image: linear-gradient(var(--lines) 0.05em, transparent 0.05em);
+    background-size: 100% 1.5em;
+    position: relative;
+    box-shadow: 15px 15px 33px rgba(27, 27, 27, 0.1);
+  }
+  .paper:before, .paper:after {
+    content: "";
+    position: absolute;
+    top: 0;
+  }
+  .paper:before {
+    height: 100%;
+    width: 2px;
+    background-color: var(--margin-line);
+    left: 4em;
+    z-index: 2;
+  }
+  .paper:after {
+    height: 6em;
+    width: 100%;
+    background-color: #fff;
+    left: 0;
+    z-index: 1;
+  }
+
+  
+  .text {
+    position: absolute;
+    top: 6rem;
+    left: 4rem;
+    width: calc(100% - 5rem);
+    height: calc(100% - 7rem);
+    background-color: transparent;
+    border: none;
+    font-family: "Comic Sans";
+    font-size: 1.5rem;
+    line-height: 1;
+    padding-left: 1rem;
+    margin: 0;
+    resize: none;
+  }
+
+
+.footer {
+    margin: 34px 0;
+}
+
+}
+
+/*---------------PC---------------*/
+
+
+@media all and (min-width: 1280px){
+
+
+.about-section{
+    text-align: left;
+}
+
+.about-section .title-tag {
+    float: left;
+
+}
+.about-section .info {
+    position: relative;
+    float: right;
+    padding-left: 20px;
+    color: #568AFA;
+}
+
+.about-section .info:before{
+    display:block;
+    position:absolute;
+    top:9px;
+    left:0;
+    width:2px;
+    height:44px;
+    background:#98D874;
+    content:"";
+    } 
+
+
+  .paper {
+    
+    width: 40%;
+    height: 500px;
+    background-color: #fff;
+    background-image: linear-gradient(var(--lines) 0.05em, transparent 0.05em);
+    background-size: 100% 1.2em;
+    position: relative;
+    box-shadow: 15px 15px 33px rgba(27, 27, 27, 0.1);
+  }
+  .paper:before, .paper:after {
+    content: "";
+    position: absolute;
+    top: 0;
+  }
+
+  .paper:before {
+    height: 100%;
+    width: 2px;
+    background-color: var(--margin-line);
+    left: 4em;
+    z-index: 2;
+  }
+  .paper:after {
+    height: 6em;
+    width: 100%;
+    background-color: #fff;
+    left: 0;
+    z-index: 1;
+  }
+
+  
+  .text {
+    position: absolute;
+    top: 6rem;
+    left: 4rem;
+    width: calc(100% - 5rem);
+    height: calc(100% - 7rem);
+    background-color: transparent;
+    border: none;
+    font-family: "Comic Sans";
+    font-size: 1.2rem;
+    line-height: 1;
+    padding-left: 1rem;
+    margin: 0;
+    resize: none;
+  }
+
+
+/* 제출 버튼 */
+
+@keyframes gradient {
+    0% {
+      background: radial-gradient(circle at center, rgba( 255, 125 , 125, 0 ) 0%, #fff 0%, #fff 100%);
+    }
+    25% {
+      background: radial-gradient(circle at center, rgba( 255, 125, 125, 0.3 ) 24%, #fff 25%, #fff 100%);
+    }
+    50% {
+      background: radial-gradient(circle at center, rgba( 255, 125, 125, 0.5 ) 49%, #fff 50%, #fff 100%);
+    }
+    75% {
+      background: radial-gradient(circle at center, rgba( 255, 125, 125, 0.8 ) 74%, #fff 75%, #fff 100%);
+    }
+    100% {
+      color: #fff;
+      background: radial-gradient(circle at center, #f88 99%, #fff 100%, #fff 100%);
+    }
+  }
+
+  button {
+    margin-top: 30px;
+    width: 15%;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background: #fff;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #666;
+    box-shadow: 0 6px 6px rgb(176, 205, 248);
+    outline: none;
+  }
+  button:active {
+    animation: gradient 100ms;
+    background: #f88;
+    color: #fff;
+    box-shadow: none;
+  }
+
+
+.copyright {
+    float: right;
+    margin: 0 5% 2% 0;
+    font-size: small;
+    color:#484a53;
+}
+
+}
+/* 여기까지 pc기준 css 설정 */
